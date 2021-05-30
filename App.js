@@ -1,13 +1,8 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-} from 'react-native';
 import {Provider as PaperProvider} from 'react-native-paper';
 import {NavigationContainer} from '@react-navigation/native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {createStackNavigator} from '@react-navigation/stack';
-
+import LoginScreen from './src/screens/LoginScreen';
 const Stack = createStackNavigator();
 
 const App: () => React$Node = () => {
@@ -15,13 +10,11 @@ const App: () => React$Node = () => {
     <NavigationContainer>
       <PaperProvider>
         <Stack.Navigator>
-          <StatusBar barStyle="dark-content" />
-          <SafeAreaView />
+          <Stack.Screen name="LoginScreen" component={LoginScreen} />
         </Stack.Navigator>
       </PaperProvider>
     </NavigationContainer>
   );
 };
-
 
 export default App;
