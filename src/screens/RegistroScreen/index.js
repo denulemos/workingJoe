@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import {TextInput, Button} from 'react-native-paper';
+import {TextInput, Button, Text} from 'react-native-paper';
 const RegistroScreen = () => {
   const [email, setEmail] = useState('');
   const [nombre, setNombre] = useState('');
@@ -8,7 +8,16 @@ const RegistroScreen = () => {
   const [celular, setCelular] = useState('');
   const [contraseña, setContraseña] = useState('');
   return (
-    <View>
+    <View style={{flex: 1, alignContent: 'center', justifyContent: 'center'}}>
+      <Text
+        style={{
+          textAlign: 'center',
+          marginTop: '1%',
+          fontSize: 34,
+          marginBottom: '3%',
+        }}>
+        Registro
+      </Text>
       <View style={{margin: '8%'}}>
         <TextInput
           label="Nombre"
@@ -17,16 +26,17 @@ const RegistroScreen = () => {
           value={nombre}
           onChangeText={(value) => setNombre(value)}
         />
-         <TextInput
+        <TextInput
           label="Apellido"
           selectionColor={'black'}
           outlineColor={'black'}
           value={apellido}
           onChangeText={(value) => setApellido(value)}
         />
-         <TextInput
+        <TextInput
           label="Email"
           selectionColor={'black'}
+          keyboardType={'email-address'}
           outlineColor={'black'}
           value={email}
           onChangeText={(value) => setEmail(value)}
@@ -54,7 +64,6 @@ const RegistroScreen = () => {
           onPress={() => console.log('Pressed')}>
           Registrarse
         </Button>
-        
       </View>
     </View>
   );

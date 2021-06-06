@@ -1,11 +1,20 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import {TextInput, Button} from 'react-native-paper';
+import {TextInput, Button, Text} from 'react-native-paper';
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [contraseña, setContraseña] = useState('');
   return (
-    <View>
+    <View style={{flex: 1, alignContent: 'center', justifyContent: 'center'}}>
+      <Text
+        style={{
+          textAlign: 'center',
+          marginTop: '18%',
+          fontSize: 34,
+          marginBottom: '10%',
+        }}>
+        Working Joe
+      </Text>
       <View style={{margin: '8%'}}>
         <TextInput
           label="Email"
@@ -34,6 +43,12 @@ const LoginScreen = ({navigation}) => {
           onPress={() => navigation.navigate('RegistroScreen')}>
           Usuario Nuevo
         </Button>
+        <Text
+          style={{
+            textAlign: 'center',
+          }}>
+          ¿Tenés dudas? Contactanos
+        </Text>
       </View>
     </View>
   );
