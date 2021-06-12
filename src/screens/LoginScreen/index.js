@@ -34,11 +34,11 @@ const LoginScreen = ({navigation}) => {
         <Button
           style={{marginTop: 30, padding: 5, backgroundColor: 'black'}}
           mode="contained"
-          onPress={() => console.log('Pressed')}>
+          onPress={() => navigation.navigate('HomeScreen')}>
           Ingresar
         </Button>
         <Button
-          style={{marginTop: 10, padding: 5, backgroundColor: 'grey'}}
+          style={{marginTop: 10, padding: 5, backgroundColor: 'grey', marginBottom: 20}}
           mode="contained"
           onPress={() => navigation.navigate('RegistroScreen')}>
           Usuario Nuevo

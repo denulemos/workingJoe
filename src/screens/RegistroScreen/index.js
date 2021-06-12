@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
 import {TextInput, Button, Text} from 'react-native-paper';
-const RegistroScreen = () => {
+const RegistroScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
@@ -50,7 +50,6 @@ const RegistroScreen = () => {
           onChangeText={(value) => setCelular(value)}
         />
         <TextInput
-          textContentType
           label="Contraseña"
           value={contraseña}
           secureTextEntry={true}
@@ -63,6 +62,12 @@ const RegistroScreen = () => {
           mode="contained"
           onPress={() => console.log('Pressed')}>
           Registrarse
+        </Button>
+        <Button
+          style={{marginTop: 10, padding: 5, backgroundColor: 'grey'}}
+          mode="contained"
+          onPress={() => navigation.navigate("LoginScreen")}>
+          Volver al Login
         </Button>
       </View>
     </View>
