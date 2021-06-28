@@ -6,19 +6,19 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 const Item = ({item, onPress, backgroundColor, textColor}) => (
   <TouchableOpacity style={{marginTop: 10, marginBottom: 10, display: 'flex', flexDirection: 'row', borderBottomWidth: 0.2, paddingBottom: 10}} onPress={onPress}>
-    <Text style={{marginRight: 10}}>{item.title}</Text>
+    <Text style={{marginRight: '50%'}}>{item.title}</Text>
 
     
     <TouchableOpacity
          style={{marginRight: 10}}
           onPress={() => console.log('fs')}>
-          <MaterialCommunityIcons size={20} name="cloud" />
+          <MaterialCommunityIcons size={20} name="pen" />
     
         </TouchableOpacity>
         <TouchableOpacity
           
           onPress={() => console.log('fs')}>
-         <MaterialCommunityIcons size={20} name="compare-horizontal" />
+         <MaterialCommunityIcons size={20} name="eye" />
     
         </TouchableOpacity>
    
@@ -77,9 +77,9 @@ const ProyectosScreen = ({navigation}) => {
           Proyectos
         </Text>
         <TouchableOpacity
-          style={{marginTop: 9}}
+          style={{marginTop: 10}}
           onPress={() => console.log('fs')}>
-          <MaterialCommunityIcons size={40} name="plus" />
+          <MaterialCommunityIcons size={38} name="plus" color={'green'} />
         </TouchableOpacity>
       </View>
 
