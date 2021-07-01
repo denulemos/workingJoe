@@ -62,6 +62,7 @@ const ProyectosScreen = ({navigation}) => {
     <View
       style={{
         flex: 1,
+        marginTop: '20%',
         alignContent: 'center',
         justifyContent: 'center',
         margin: 30,
