@@ -73,6 +73,7 @@ const ProyectosScreen = ({navigation}) => {
             textAlign: 'center',
             marginTop: '1%',
             fontSize: 34,
+            fontWeight: 'bold',
             marginBottom: '3%',
           }}>
           Proyectos

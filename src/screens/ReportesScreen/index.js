@@ -15,6 +15,7 @@ const ReportesScreen = ({navigation}) => {
          <Text
         style={{
           textAlign: 'center',
+          fontWeight: 'bold',
           marginTop: '18%',
           fontSize: 34,
           marginBottom: '10%',

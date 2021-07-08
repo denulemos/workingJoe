@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
   titulo: {
     textAlign: 'center',
     marginTop: '18%',
+   fontWeight: 'bold',
     fontSize: 34,
     marginBottom: '10%',
   },
