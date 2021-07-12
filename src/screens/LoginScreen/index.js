@@ -1,20 +1,12 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {TextInput, Button, Text} from 'react-native-paper';
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [contraseña, setContraseña] = useState('');
   return (
-    <View style={{flex: 1, alignContent: 'center', justifyContent: 'center'}}>
-      <Text
-        style={{
-          textAlign: 'center',
-          marginTop: '18%',
-          fontSize: 34,
-          marginBottom: '10%',
-        }}>
-        Working Joe
-      </Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Working Joe</Text>
       <View style={{margin: '8%'}}>
         <TextInput
           label="Email"
@@ -32,18 +24,13 @@ const LoginScreen = ({navigation}) => {
           onChangeText={(value) => setContraseña(value)}
         />
         <Button
-          style={{marginTop: 30, padding: 5, backgroundColor: 'black'}}
+          style={styles.buttonCheckStyle}
           mode="contained"
           onPress={() => navigation.navigate('CheckScreen')}>
           Ingresar
         </Button>
         <Button
-          style={{
-            marginTop: 10,
-            padding: 5,
-            backgroundColor: 'grey',
-            marginBottom: 20,
-          }}
+          style={styles.registroButton}
           mode="contained"
           onPress={() => navigation.navigate('RegistroScreen')}>
           Usuario Nuevo
@@ -58,5 +45,26 @@ const LoginScreen = ({navigation}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    textAlign: 'center',
+    marginTop: '18%',
+    fontSize: 34,
+    marginBottom: '10%',
+  },
+  buttonCheckStyle: {marginTop: 30, padding: 5, backgroundColor: 'black'},
+  registroButton: {
+    marginTop: 10,
+    padding: 5,
+    backgroundColor: 'grey',
+    marginBottom: 20,
+  },
+});
 
 export default LoginScreen;
