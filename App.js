@@ -3,11 +3,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import LoginScreen from './src/screens/LoginScreen';
 import RegistroScreen from './src/screens/RegistroScreen';
-import HomeTabs from './src/navegation/HomeTabs';
+import { Provider as PaperProvider } from 'react-native-paper';
+import HomeTabs from './src/navigation/HomeTabs';
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
+    <PaperProvider>
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
@@ -27,6 +29,7 @@ const App = () => {
         />
       </Stack.Navigator>
     </NavigationContainer>
+    </PaperProvider>
   );
 };
 

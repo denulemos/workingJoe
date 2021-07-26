@@ -1,12 +1,25 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import {TextInput, Button, Text} from 'react-native-paper';
+import {TextInput, Button, Text, Portal, Dialog} from 'react-native-paper';
+import UserService from '../../services/UserService';
+
 const RegistroScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
   const [celular, setCelular] = useState('');
   const [contraseña, setContraseña] = useState('');
+  const [mostrarModal, setMostrarModal] = useState(false);
+
+  const registroUsuario = () => {
+   // setMostrarModal(true);
+    UserService.registro(nombre, apellido, contraseña, celular, email).then(
+      (res) => {
+        console.log(res);
+      },
+    );
+  };
+
   return (
     <View style={{flex: 1, alignContent: 'center', justifyContent: 'center'}}>
       <Text
@@ -60,15 +73,25 @@ const RegistroScreen = ({navigation}) => {
         <Button
           style={{marginTop: 30, padding: 5, backgroundColor: 'black'}}
           mode="contained"
-          onPress={() => console.log('Pressed')}>
+          onPress={() => registroUsuario()}>
           Registrarse
         </Button>
         <Button
           style={{marginTop: 10, padding: 5, backgroundColor: 'grey'}}
           mode="contained"
-          onPress={() => navigation.navigate("LoginScreen")}>
-          Volver al Login
+          onPress={() => navigation.navigate('LoginScreen')}>
+          Volver
         </Button>
+        <Portal>
+          <Dialog
+            visible={mostrarModal}
+            onDismiss={() => setMostrarModal(false)}>
+            <Dialog.Title>Alert</Dialog.Title>
+            <Dialog.Actions>
+              <Button onPress={() => setMostrarModal(false)}>Ok</Button>
+            </Dialog.Actions>
+          </Dialog>
+        </Portal>
       </View>
     </View>
   );
