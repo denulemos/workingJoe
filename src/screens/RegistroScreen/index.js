@@ -10,12 +10,37 @@ const RegistroScreen = ({navigation}) => {
   const [celular, setCelular] = useState('');
   const [contraseña, setContraseña] = useState('');
   const [mostrarModal, setMostrarModal] = useState(false);
+  const [textoModal, setTextoModal] = useState('');
+
+  const validarCampos = () => {
+    if (
+      email.length === 0 ||
+      nombre.length === 0 ||
+      apellido.length === 0 ||
+      constraseña.length === 0 ||
+      celular.length === 0
+    ) {
+      setTextoModal('Completá todos los campos');
+      setMostrarModal(true);
+    } else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(email)) {
+      setTextoModal('Email invalido');
+      setMostrarModal(true);
+    } else {
+      registroUsuario();
+    }
+  };
 
   const registroUsuario = () => {
-   // setMostrarModal(true);
     UserService.registro(nombre, apellido, contraseña, celular, email).then(
       (res) => {
-        console.log(res);
+        const response = JSON.parse(res);
+        if (response.success) {
+          setTextoModal('Usuario creado correctamente');
+          setMostrarModal(true);
+        } else {
+          setTextoModal('Ocurrió un error: ' + response.error.message);
+          setMostrarModal(true);
+        }
       },
     );
   };
@@ -71,9 +96,13 @@ const RegistroScreen = ({navigation}) => {
           onChangeText={(value) => setContraseña(value)}
         />
         <Button
-          style={{marginTop: 30, padding: 5, backgroundColor: 'black'}}
+          style={{
+            marginTop: 30,
+            padding: 5,
+            backgroundColor: 'black',
+          }}
           mode="contained"
-          onPress={() => registroUsuario()}>
+          onPress={() => validarCampos()}>
           Registrarse
         </Button>
         <Button
@@ -86,7 +115,7 @@ const RegistroScreen = ({navigation}) => {
           <Dialog
             visible={mostrarModal}
             onDismiss={() => setMostrarModal(false)}>
-            <Dialog.Title>Alert</Dialog.Title>
+            <Dialog.Title>{textoModal}</Dialog.Title>
             <Dialog.Actions>
               <Button onPress={() => setMostrarModal(false)}>Ok</Button>
             </Dialog.Actions>
