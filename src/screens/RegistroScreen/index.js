@@ -17,7 +17,7 @@ const RegistroScreen = ({navigation}) => {
       email.length === 0 ||
       nombre.length === 0 ||
       apellido.length === 0 ||
-      constraseña.length === 0 ||
+      contraseña.length === 0 ||
       celular.length === 0
     ) {
       setTextoModal('Completá todos los campos');
