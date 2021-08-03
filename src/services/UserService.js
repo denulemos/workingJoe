@@ -28,24 +28,14 @@ const UserService = {
         return JSON.stringify(res.data);
       })
       .catch((e) => {
-        return JSON.stringify(res.data);
+        return JSON.stringify(e.data);
       });
   },
 
   login: function (password, email) {
     var config = {
       method: 'get',
-      url:
-        'https://workingjoe.byethost9.com/apiWJ/usuario/create.php?nombre=' +
-        nombre +
-        '&apellido=' +
-        apellido +
-        '&mail=' +
-        email +
-        '&celular=' +
-        celular +
-        '&clave=' +
-        password,
+      url: 'http://workingjoe.byethost9.com/apiWJ/usuario/read.php',
       headers: {
         'User-Agent':
           'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36',
@@ -55,10 +45,10 @@ const UserService = {
 
     return axios(config)
       .then((res) => {
-        console.log(JSON.stringify(res));
+        return res.data;
       })
       .catch((e) => {
-        console.log('ERROR' + e);
+        return JSON.stringify(e.data);
       });
   },
 };

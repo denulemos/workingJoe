@@ -1,8 +1,23 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import {Button} from 'react-native-paper';
+import DefaultPreference from 'react-native-default-preference';
 
-const DatosScreen = () => {
+const DatosScreen = ({navigation}) => {
+  const [nombre, setNombre] = useState('');
+  const [apellido, setApellido] = useState('');
+  const [email, setEmail] = useState('');
+  const [celular, setCelular] = useState('');
+
+  useEffect(() => {
+    DefaultPreference.get('usuario').then(function (value) {
+      setNombre(JSON.parse(value).NOMBRE);
+      setApellido(JSON.parse(value).APELLIDO);
+      setEmail(JSON.parse(value).MAIL);
+      setCelular(JSON.parse(value).CELULAR);
+    });
+  });
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -10,13 +25,13 @@ const DatosScreen = () => {
           <Image
             style={styles.avatar}
             source={{
-              uri: 'https://bootdey.com/img/Content/avatar/avatar6.png',
+              uri: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
             }}
           />
 
-          <Text style={styles.name}>Nombre Apellido </Text>
-          <Text style={styles.userInfo}>jhonnydoe@mail.com </Text>
-          <Text style={styles.userInfo}>nombreUsuario </Text>
+          <Text style={styles.name}>{nombre} {apellido} </Text>
+          <Text style={styles.userInfo}>{email}</Text>
+          <Text style={styles.userInfo}>{celular}</Text>
         </View>
       </View>
 
@@ -25,7 +40,7 @@ const DatosScreen = () => {
           style={{backgroundColor: 'black', width: '100%'}}
           icon="logout"
           mode="contained"
-          onPress={() => {}}>
+          onPress={() => navigation.navigate('LoginScreen')}>
           Log out
         </Button>
       </View>

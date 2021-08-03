@@ -22,7 +22,7 @@ const RegistroScreen = ({navigation}) => {
     ) {
       setTextoModal('Completá todos los campos');
       setMostrarModal(true);
-    } else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(email)) {
+    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(email)) {
       setTextoModal('Email invalido');
       setMostrarModal(true);
     } else {
@@ -35,8 +35,9 @@ const RegistroScreen = ({navigation}) => {
       (res) => {
         const response = JSON.parse(res);
         if (response.success) {
-          setTextoModal('Usuario creado correctamente');
+          setTextoModal('Usuario creado correctamente!');
           setMostrarModal(true);
+          navigation.navigate('LoginScreen');
         } else {
           setTextoModal('Ocurrió un error: ' + response.error.message);
           setMostrarModal(true);
