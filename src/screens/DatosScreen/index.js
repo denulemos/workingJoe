@@ -18,6 +18,13 @@ const DatosScreen = ({navigation}) => {
     });
   });
 
+  const logOut = () => {
+    DefaultPreference.set('usuario', null).then(function () {
+      console.log('done');
+    });
+    navigation.navigate('LoginScreen');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -29,7 +36,9 @@ const DatosScreen = ({navigation}) => {
             }}
           />
 
-          <Text style={styles.name}>{nombre} {apellido} </Text>
+          <Text style={styles.name}>
+            {nombre} {apellido}
+          </Text>
           <Text style={styles.userInfo}>{email}</Text>
           <Text style={styles.userInfo}>{celular}</Text>
         </View>
@@ -37,10 +46,10 @@ const DatosScreen = ({navigation}) => {
 
       <View style={styles.body}>
         <Button
-          style={{backgroundColor: 'black', width: '100%'}}
+          style={styles.button}
           icon="logout"
           mode="contained"
-          onPress={() => navigation.navigate('LoginScreen')}>
+          onPress={() => logOut()}>
           Log out
         </Button>
       </View>
@@ -51,6 +60,10 @@ const DatosScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   header: {
     backgroundColor: '#DCDCDC',
+  },
+  button: {
+    backgroundColor: 'black',
+    width: '100%',
   },
   headerContent: {
     padding: 30,

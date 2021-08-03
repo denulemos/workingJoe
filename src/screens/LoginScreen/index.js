@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {TextInput, Button, Text, Portal, Dialog} from 'react-native-paper';
 import UserService from '../../services/UserService';
@@ -9,6 +9,16 @@ const LoginScreen = ({navigation}) => {
   const [contraseña, setContraseña] = useState('');
   const [mostrarModal, setMostrarModal] = useState(false);
   const [textoModal, setTextoModal] = useState('');
+
+  useEffect(() => {
+    DefaultPreference.get('usuario').then(function (value) {
+      if (value !== null && value !== undefined) {
+        console.log(value);
+        navigation.navigate('CheckScreen');
+        return;
+      }
+    });
+  });
 
   const validarCampos = () => {
     if (email.length === 0 || contraseña.length === 0) {
@@ -38,7 +48,9 @@ const LoginScreen = ({navigation}) => {
 
   const storeData = (value) => {
     try {
-      DefaultPreference.set('usuario', JSON.stringify(value)).then(function() {console.log('done')});
+      DefaultPreference.set('usuario', JSON.stringify(value)).then(function () {
+        console.log('done');
+      });
       setTextoModal('Bienvenido ' + value.NOMBRE + '!');
       setMostrarModal(true);
       navigation.navigate('CheckScreen');
