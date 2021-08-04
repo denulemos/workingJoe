@@ -22,9 +22,6 @@ const RegistroScreen = ({navigation}) => {
     ) {
       setTextoModal('Completá todos los campos');
       setMostrarModal(true);
-    } else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(email)) {
-      setTextoModal('Email invalido');
-      setMostrarModal(true);
     } else {
       registroUsuario();
     }
@@ -53,7 +50,7 @@ const RegistroScreen = ({navigation}) => {
           textAlign: 'center',
           marginTop: '1%',
           fontSize: 34,
-          marginBottom: '3%',
+          marginBottom: '1%',
         }}>
         Registro
       </Text>

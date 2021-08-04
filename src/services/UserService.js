@@ -45,9 +45,11 @@ const UserService = {
 
     return axios(config)
       .then((res) => {
+        alert(' then' , res.data);
         return res.data;
       })
       .catch((e) => {
+        alert('error', JSON.parse(JSON.stringify(e.data)));
         return JSON.stringify(e.data);
       });
   },
