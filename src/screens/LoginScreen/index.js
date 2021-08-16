@@ -3,6 +3,7 @@ import {View, StyleSheet, ActivityIndicator} from 'react-native';
 import {TextInput, Button, Text, Portal, Dialog} from 'react-native-paper';
 import UserService from '../../services/UserService';
 import DefaultPreference from 'react-native-default-preference';
+import PortalModal from '../../components/PortalModal';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -36,7 +37,7 @@ const LoginScreen = ({navigation}) => {
     UserService.login().then((res) => {
       setTextoModal(JSON.parse(JSON.stringify(res.data)));
       setMostrarModal(true);
-     const arrayUsuarios = JSON.parse(JSON.stringify(res.data.items));
+      const arrayUsuarios = JSON.parse(JSON.stringify(res.data.items));
 
       for (let i = 0; i < arrayUsuarios.length; i++) {
         if (
@@ -108,14 +109,12 @@ const LoginScreen = ({navigation}) => {
           color="black"
         />
       </View>
-      <Portal>
-        <Dialog visible={mostrarModal} onDismiss={() => setMostrarModal(false)}>
-          <Dialog.Title>{textoModal}</Dialog.Title>
-          <Dialog.Actions>
-            <Button onPress={() => setMostrarModal(false)}>Ok</Button>
-          </Dialog.Actions>
-        </Dialog>
-      </Portal>
+      <PortalModal
+        mostrarModal={mostrarModal}
+        textoModal={textoModal}
+        textoBoton={'Ok'}
+        funcionModal={() => setMostrarModal(!mostrarModal)}
+      />
     </View>
   );
 };

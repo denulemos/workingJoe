@@ -1,29 +1,29 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {FlatList, Text, TouchableOpacity, View} from 'react-native';
-import {Menu} from 'react-native-paper';
-import {TextInput, Button} from 'react-native-paper';
+import {Button} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Item = ({item, onPress, backgroundColor, textColor}) => (
-  <TouchableOpacity style={{marginTop: 10, marginBottom: 10, display: 'flex', flexDirection: 'row', borderBottomWidth: 0.2, paddingBottom: 10}} onPress={onPress}>
+  <TouchableOpacity
+    style={{
+      marginTop: 10,
+      marginBottom: 10,
+      display: 'flex',
+      flexDirection: 'row',
+      borderBottomWidth: 0.2,
+      paddingBottom: 10,
+    }}
+    onPress={onPress}>
     <Text style={{marginRight: '50%'}}>{item.title}</Text>
 
-    
     <TouchableOpacity
-         style={{marginRight: 10}}
-          onPress={() => console.log('fs')}>
-          <MaterialCommunityIcons size={20} name="pen" />
-    
-        </TouchableOpacity>
-        <TouchableOpacity
-          
-          onPress={() => console.log('fs')}>
-         <MaterialCommunityIcons size={20} name="eye" />
-    
-        </TouchableOpacity>
-   
- 
-        
+      style={{marginRight: 10}}
+      onPress={() => console.log('fs')}>
+      <MaterialCommunityIcons size={20} name="pen" />
+    </TouchableOpacity>
+    <TouchableOpacity onPress={() => console.log('fs')}>
+      <MaterialCommunityIcons size={20} name="eye" />
+    </TouchableOpacity>
   </TouchableOpacity>
 );
 
@@ -85,27 +85,26 @@ const ProyectosScreen = ({navigation}) => {
         </TouchableOpacity>
       </View>
 
-
       <FlatList
-      style={{ padding: 10}}
+        style={{padding: 10}}
         data={DATA}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
-    
-<View style={{display: 'flex', flexDirection: 'column'}}>
-<Button
-        style={{backgroundColor: 'black', marginTop: 10}}
-        mode="contained"
-        onPress={() => console.log('Pressed')}>
-        Tareas
-      </Button>
-      <Button
-        style={{backgroundColor: 'black', marginTop: 10}}
-        mode="contained"
-        onPress={() => console.log('Pressed')}>
-        Usuarios
-      </Button>
+
+      <View style={{display: 'flex', flexDirection: 'column'}}>
+        <Button
+          style={{backgroundColor: 'black', marginTop: 10}}
+          mode="contained"
+          onPress={() => console.log('Pressed')}>
+          Tareas
+        </Button>
+        <Button
+          style={{backgroundColor: 'black', marginTop: 10}}
+          mode="contained"
+          onPress={() => console.log('Pressed')}>
+          Usuarios
+        </Button>
       </View>
     </View>
   );
