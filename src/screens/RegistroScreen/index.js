@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {View} from 'react-native';
-import {TextInput, Button, Text, Portal, Dialog} from 'react-native-paper';
+import {View, StyleSheet} from 'react-native';
+import {TextInput, Button, Text} from 'react-native-paper';
+import PortalModal from '../../components/PortalModal';
 import UserService from '../../services/UserService';
 
 const RegistroScreen = ({navigation}) => {
@@ -44,16 +45,8 @@ const RegistroScreen = ({navigation}) => {
   };
 
   return (
-    <View style={{flex: 1, alignContent: 'center', justifyContent: 'center'}}>
-      <Text
-        style={{
-          textAlign: 'center',
-          marginTop: '1%',
-          fontSize: 34,
-          marginBottom: '1%',
-        }}>
-        Registro
-      </Text>
+    <View style={styles.container}>
+      <Text style={styles.titulo}>Registro</Text>
       <View style={{margin: '8%'}}>
         <TextInput
           label="Nombre"
@@ -94,34 +87,46 @@ const RegistroScreen = ({navigation}) => {
           onChangeText={(value) => setContraseña(value)}
         />
         <Button
-          style={{
-            marginTop: 30,
-            padding: 5,
-            backgroundColor: 'black',
-          }}
+          style={styles.registerButton}
           mode="contained"
           onPress={() => validarCampos()}>
           Registrarse
         </Button>
         <Button
-          style={{marginTop: 10, padding: 5, backgroundColor: 'grey'}}
+          style={styles.loginButton}
           mode="contained"
           onPress={() => navigation.navigate('LoginScreen')}>
           Volver
         </Button>
-        <Portal>
-          <Dialog
-            visible={mostrarModal}
-            onDismiss={() => setMostrarModal(false)}>
-            <Dialog.Title>{textoModal}</Dialog.Title>
-            <Dialog.Actions>
-              <Button onPress={() => setMostrarModal(false)}>Ok</Button>
-            </Dialog.Actions>
-          </Dialog>
-        </Portal>
+        <PortalModal
+          mostrarModal={mostrarModal}
+          textoModal={textoModal}
+          textoBoton={'Ok'}
+          funcionModal={() => setMostrarModal(!mostrarModal)}
+        />
       </View>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  loginButton: {
+    marginTop: 10,
+    padding: 5,
+    backgroundColor: 'grey',
+  },
+  registerButton: {
+    marginTop: 30,
+    padding: 5,
+    backgroundColor: 'black',
+  },
+  titulo: {
+    textAlign: 'center',
+    marginTop: '1%',
+    fontSize: 34,
+    marginBottom: '1%',
+  },
+  container: {flex: 1, alignContent: 'center', justifyContent: 'center'},
+});
 
 export default RegistroScreen;

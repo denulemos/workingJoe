@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, ActivityIndicator} from 'react-native';
-import {TextInput, Button, Text, Portal, Dialog} from 'react-native-paper';
+import {TextInput, Button, Text} from 'react-native-paper';
 import UserService from '../../services/UserService';
 import DefaultPreference from 'react-native-default-preference';
 import PortalModal from '../../components/PortalModal';
@@ -11,16 +11,6 @@ const LoginScreen = ({navigation}) => {
   const [mostrarModal, setMostrarModal] = useState(false);
   const [textoModal, setTextoModal] = useState('');
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    DefaultPreference.get('usuario').then(function (value) {
-      if (value !== null && value !== undefined) {
-        console.log(value);
-        navigation.navigate('CheckScreen');
-        return;
-      }
-    });
-  });
 
   const validarCampos = () => {
     setLoading(true);
@@ -45,7 +35,6 @@ const LoginScreen = ({navigation}) => {
           arrayUsuarios[i].CLAVE === contraseña
         ) {
           storeData(arrayUsuarios[i]);
-
           return;
         }
       }
@@ -74,7 +63,7 @@ const LoginScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Working Joe</Text>
-      <View style={{margin: '8%'}}>
+      <View style={styles.inputContainer}>
         <TextInput
           label="Email"
           selectionColor={'black'}
@@ -120,6 +109,7 @@ const LoginScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+  inputContainer: {margin: '8%'},
   textHelp: {
     textAlign: 'center',
   },

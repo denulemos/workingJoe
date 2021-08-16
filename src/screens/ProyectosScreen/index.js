@@ -1,9 +1,9 @@
 import React from 'react';
-import {FlatList, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, Text, TouchableOpacity, View, StyleSheet} from 'react-native';
 import {Button} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Item = ({item, onPress, backgroundColor, textColor}) => (
+const Item = ({item, onPress }) => (
   <TouchableOpacity
     style={{
       marginTop: 10,
@@ -59,25 +59,9 @@ const ProyectosScreen = ({navigation}) => {
     return <Item item={item} onPress={() => console.log('sfs')} />;
   };
   return (
-    <View
-      style={{
-        flex: 1,
-        marginTop: '20%',
-        alignContent: 'center',
-        justifyContent: 'center',
-        margin: 30,
-      }}>
-      <View style={{display: 'flex', flexDirection: 'row'}}>
-        <Text
-          style={{
-            textAlign: 'center',
-            marginTop: '1%',
-            fontSize: 34,
-            fontWeight: 'bold',
-            marginBottom: '3%',
-          }}>
-          Proyectos
-        </Text>
+    <View style={styles.container}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.proyectoTitle}>Proyectos</Text>
         <TouchableOpacity
           style={{marginTop: 10}}
           onPress={() => console.log('fs')}>
@@ -86,21 +70,21 @@ const ProyectosScreen = ({navigation}) => {
       </View>
 
       <FlatList
-        style={{padding: 10}}
+        style={styles.list}
         data={DATA}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
 
-      <View style={{display: 'flex', flexDirection: 'column'}}>
+      <View style={styles.buttonContainer}>
         <Button
-          style={{backgroundColor: 'black', marginTop: 10}}
+          style={styles.usuariosButton}
           mode="contained"
           onPress={() => console.log('Pressed')}>
           Tareas
         </Button>
         <Button
-          style={{backgroundColor: 'black', marginTop: 10}}
+          style={styles.usuariosButton}
           mode="contained"
           onPress={() => console.log('Pressed')}>
           Usuarios
@@ -109,5 +93,27 @@ const ProyectosScreen = ({navigation}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  usuariosButton: {backgroundColor: 'black', marginTop: 10},
+  buttonContainer: {display: 'flex', flexDirection: 'column'},
+  list: {padding: 10},
+  container: {flex: 1, alignContent: 'center', justifyContent: 'center'},
+  proyectoTitle: {
+    textAlign: 'center',
+    marginTop: '1%',
+    fontSize: 34,
+    fontWeight: 'bold',
+    marginBottom: '3%',
+  },
+  headerContainer: {display: 'flex', flexDirection: 'row'},
+  container: {
+    flex: 1,
+    marginTop: '20%',
+    alignContent: 'center',
+    justifyContent: 'center',
+    margin: 30,
+  },
+});
 
 export default ProyectosScreen;
