@@ -10,12 +10,19 @@ const DatosScreen = ({navigation}) => {
   const [celular, setCelular] = useState('');
 
   useEffect(() => {
-    DefaultPreference.get('usuario').then(function (value) {
-      setNombre(JSON.parse(value).NOMBRE);
-      setApellido(JSON.parse(value).APELLIDO);
-      setEmail(JSON.parse(value).MAIL);
-      setCelular(JSON.parse(value).CELULAR);
-    });
+    DefaultPreference.get('usuario')
+      .then((value) => {
+        setNombre(JSON.parse(value).NOMBRE);
+        setApellido(JSON.parse(value).APELLIDO);
+        setEmail(JSON.parse(value).MAIL);
+        setCelular(JSON.parse(value).CELULAR);
+      })
+      .catch(() => {
+        setNombre('Nombre');
+        setApellido('Apellido');
+        setEmail('Email@gmail.com');
+        setCelular('+541123345678');
+      });
   });
 
   const logOut = () => {
@@ -26,71 +33,74 @@ const DatosScreen = ({navigation}) => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.headerContent}>
-          <Image
-            style={styles.avatar}
-            source={{
-              uri: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
-            }}
-          />
+    <View style={styles.body}>
+      <View style={styles.info}>
+        <Image
+          style={styles.avatar}
+          source={{
+            uri: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png',
+          }}
+        />
 
-          <Text style={styles.name}>
-            {nombre} {apellido}
-          </Text>
-          <Text style={styles.userInfo}>{email}</Text>
-          <Text style={styles.userInfo}>{celular}</Text>
-        </View>
+        <Text style={styles.name}>
+          {nombre} {apellido}
+        </Text>
+        <Text style={styles.userInfo}>{email}</Text>
+        <Text style={styles.userInfo}>{celular}</Text>
       </View>
-
-      <View style={styles.body}>
-        <Button
-          style={styles.button}
-          icon="logout"
-          mode="contained"
-          onPress={() => logOut()}>
-          Log out
-        </Button>
-      </View>
+      <Button style={styles.button} mode="contained" onPress={() => logOut()}>
+        Modificar Datos
+      </Button>
+      <Button
+        style={styles.buttonLogOut}
+        icon="logout"
+        mode="contained"
+        onPress={() => logOut()}>
+        Log out
+      </Button>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  header: {
-    backgroundColor: '#DCDCDC',
-  },
   button: {
-    backgroundColor: 'black',
-    width: '100%',
+    backgroundColor: 'grey',
+    width: '50%',
+    marginTop: 20,
   },
-  headerContent: {
-    padding: 30,
-    marginTop: 40,
-    alignItems: 'center',
+  buttonLogOut: {
+    backgroundColor: 'black',
+    width: '50%',
+    marginTop: 5,
   },
   avatar: {
     width: 130,
     height: 130,
     borderRadius: 63,
     borderWidth: 4,
+    marginLeft: 20,
     borderColor: 'white',
     marginBottom: 10,
   },
   name: {
+    textAlign: 'center',
     fontSize: 22,
     color: '#000000',
     fontWeight: '600',
   },
   userInfo: {
     fontSize: 16,
+    textAlign: 'center',
     color: '#778899',
     fontWeight: '600',
   },
   body: {
-    height: 500,
+    backgroundColor: '#DCDCDC',
     alignItems: 'center',
+    flexDirection: 'column',
+    height: '100%',
+    flex: 1,
+    justifyContent: 'center',
   },
   item: {
     flexDirection: 'row',
@@ -109,11 +119,6 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     marginTop: 20,
-  },
-  info: {
-    fontSize: 18,
-    marginTop: 20,
-    color: '#FFFFFF',
   },
 });
 

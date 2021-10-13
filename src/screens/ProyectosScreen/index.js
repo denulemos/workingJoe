@@ -4,26 +4,25 @@ import {Menu} from 'react-native-paper';
 import {TextInput, Button} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Item = ({item, onPress, backgroundColor, textColor}) => (
-  <TouchableOpacity style={{marginTop: 10, marginBottom: 10, display: 'flex', flexDirection: 'row', borderBottomWidth: 0.2, paddingBottom: 10}} onPress={onPress}>
-    <Text style={{marginRight: '50%'}}>{item.title}</Text>
+const Item = ({item, onPress}) => (
+  <TouchableOpacity
+    style={{
+      marginTop: 10,
+      marginBottom: 10,
+      display: 'flex',
+      flexDirection: 'row',
+      borderBottomWidth: 0.2,
+      paddingBottom: 10,
+    }}
+    onPress={onPress}>
+    <Text style={{marginRight: '45%', fontSize: 20}}>{item.title}</Text>
 
-    
-    <TouchableOpacity
-         style={{marginRight: 10}}
-          onPress={() => console.log('fs')}>
-          <MaterialCommunityIcons size={20} name="pen" />
-    
-        </TouchableOpacity>
-        <TouchableOpacity
-          
-          onPress={() => console.log('fs')}>
-         <MaterialCommunityIcons size={20} name="eye" />
-    
-        </TouchableOpacity>
-   
- 
-        
+    <TouchableOpacity style={{marginRight: 10}} onPress={() => {}}>
+      <MaterialCommunityIcons size={20} name="pen" />
+    </TouchableOpacity>
+    <TouchableOpacity onPress={() => console.log('fs')}>
+      <MaterialCommunityIcons size={20} name="eye" />
+    </TouchableOpacity>
   </TouchableOpacity>
 );
 
@@ -74,7 +73,7 @@ const ProyectosScreen = ({navigation}) => {
             marginTop: '1%',
             fontSize: 34,
             fontWeight: 'bold',
-            marginBottom: '3%',
+            marginBottom: '10%',
           }}>
           Proyectos
         </Text>
@@ -85,27 +84,26 @@ const ProyectosScreen = ({navigation}) => {
         </TouchableOpacity>
       </View>
 
-
       <FlatList
-      style={{ padding: 10}}
+        style={{padding: 10}}
         data={DATA}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
-    
-<View style={{display: 'flex', flexDirection: 'column'}}>
-<Button
-        style={{backgroundColor: 'black', marginTop: 10}}
-        mode="contained"
-        onPress={() => console.log('Pressed')}>
-        Tareas
-      </Button>
-      <Button
-        style={{backgroundColor: 'black', marginTop: 10}}
-        mode="contained"
-        onPress={() => console.log('Pressed')}>
-        Usuarios
-      </Button>
+
+      <View style={{display: 'flex', flexDirection: 'column'}}>
+        <Button
+          style={{backgroundColor: 'black', marginTop: 10}}
+          mode="contained"
+          onPress={() => console.log('Pressed')}>
+          Tareas
+        </Button>
+        <Button
+          style={{backgroundColor: 'black', marginTop: 10}}
+          mode="contained"
+          onPress={() => console.log('Pressed')}>
+          Usuarios
+        </Button>
       </View>
     </View>
   );

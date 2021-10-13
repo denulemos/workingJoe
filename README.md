@@ -1,9 +1,9 @@
 # Working Joe
 Se necesita un sistema para gestionar equipos de manera virtual.
 
-Se definirán dos roles para la aplicación: líderes y miembros. Los usuarios líderes deben tener las funcionalidades propias del líder, mientras que para los miembros no deben estar o estar deshabilitadas. Los líderes tienen todas las funcionalidades de los miembros. 
+Se definirán dos roles para la aplicación: líderes y miembros. Los usuarios líderes deben tener las funcionalidades propias del líder, mientras que para los miembros no deben estar o estar deshabilitadas. Los líderes tienen todas las funcionalidades de los miembros.
 
-Los líderes definen qué miembros integrarán sus equipos, definen y modifican el proyecto y las tareas a realizar, supervisan a sus miembros y su avance. 
+Los líderes definen qué miembros integrarán sus equipos, definen y modifican el proyecto y las tareas a realizar, supervisan a sus miembros y su avance.
 
 Los miembros de equipos informan cuando empiezan a trabajar en una tarea, cuando finalizan y un detalle de lo realizado. Pueden visualizar a todos los usuarios de la aplicación, quiénes están en línea, visualizar todos los proyectos y solicitar unirse.
 
@@ -32,6 +32,7 @@ La aplicación debe mostrar un cronómetro desde el momento que se inicia un per
 ![Pantallas](./assets/documentationImages/Pantallas.JPG)
 ![Detalle](./assets/documentationImages/Detalle.JPG)
 
+## Screenshots (Primera version)
 ## Requerimiento Funcional
 ![ReqFun](./assets/documentationImages/ReqFuncional.JPG)
 

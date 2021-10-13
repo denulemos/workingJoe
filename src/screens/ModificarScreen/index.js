@@ -1,47 +1,14 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
 import {TextInput, Button, Text, Portal, Dialog} from 'react-native-paper';
-import UserService from '../../services/UserService';
 
-const RegistroScreen = ({navigation}) => {
+const ModificarScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
   const [celular, setCelular] = useState('');
   const [contraseña, setContraseña] = useState('');
   const [mostrarModal, setMostrarModal] = useState(false);
-  const [textoModal, setTextoModal] = useState('');
-
-  const validarCampos = () => {
-    if (
-      email.length === 0 ||
-      nombre.length === 0 ||
-      apellido.length === 0 ||
-      contraseña.length === 0 ||
-      celular.length === 0
-    ) {
-      setTextoModal('Completá todos los campos');
-      setMostrarModal(true);
-    } else {
-      registroUsuario();
-    }
-  };
-
-  const registroUsuario = () => {
-    UserService.registro(nombre, apellido, contraseña, celular, email).then(
-      (res) => {
-        const response = JSON.parse(res);
-        if (response.success) {
-          setTextoModal('Usuario creado correctamente!');
-          setMostrarModal(true);
-          navigation.navigate('LoginScreen');
-        } else {
-          setTextoModal('Ocurrió un error: ' + response.error.message);
-          setMostrarModal(true);
-        }
-      },
-    );
-  };
 
   return (
     <View style={{flex: 1, alignContent: 'center', justifyContent: 'center'}}>
@@ -124,4 +91,4 @@ const RegistroScreen = ({navigation}) => {
   );
 };
 
-export default RegistroScreen;
+export default ModificarScreen;

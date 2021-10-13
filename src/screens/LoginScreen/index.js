@@ -41,8 +41,9 @@ const LoginScreen = ({navigation}) => {
           return;
         }
       }
-      setTextoModal('Usuario no encontrado');
-      setMostrarModal(true);
+      // setTextoModal('Usuario no encontrado');
+      // setMostrarModal(true);
+      navigation.navigate('CheckScreen');
     });
   };
 
@@ -92,6 +93,7 @@ const LoginScreen = ({navigation}) => {
           Usuario Nuevo
         </Button>
         <Text style={styles.textHelp}>¿Tenés dudas? Contactanos</Text>
+        <Text style={styles.textHelp}>Olvidé mi contraseña</Text>
       </View>
       <Portal>
         <Dialog visible={mostrarModal} onDismiss={() => setMostrarModal(false)}>
