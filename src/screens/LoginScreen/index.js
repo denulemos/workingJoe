@@ -42,7 +42,7 @@ const LoginScreen = ({navigation}) => {
       // Se descomentará este proceso cuando tengamos servicios
       // setTextoModal('Usuario no encontrado');
       // setMostrarModal(true);
-      // setLoading(false)
+      setLoading(false);
       navigation.navigate('CheckScreen');
     });
   };
