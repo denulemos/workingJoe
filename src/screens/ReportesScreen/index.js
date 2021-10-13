@@ -1,30 +1,28 @@
-import React, {useState} from 'react';
-import {View} from 'react-native';
-import {Picker} from '@react-native-picker/picker';
-import {TextInput, Button, Text} from 'react-native-paper';
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
+import {Text} from 'react-native-paper';
 const ReportesScreen = ({navigation}) => {
-  const [selectedValue, setSelectedValue] = useState('java');
   return (
-    <View
-      style={{
-        flex: 1,
-        alignContent: 'center',
-        justifyContent: 'center',
-        margin: 50,
-      }}>
-         <Text
-        style={{
-          textAlign: 'center',
-          fontWeight: 'bold',
-          marginTop: '18%',
-          fontSize: 34,
-          marginBottom: '10%',
-        }}>
-        Reportes
-      </Text>
-
+    <View style={styles.body}>
+      <Text style={styles.text}> Reportes </Text>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  body: {
+    flex: 1,
+    alignContent: 'center',
+    justifyContent: 'center',
+    margin: 50,
+  },
+  text: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginTop: '18%',
+    fontSize: 34,
+    marginBottom: '10%',
+  },
+});
 
 export default ReportesScreen;

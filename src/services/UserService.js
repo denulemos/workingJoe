@@ -4,18 +4,7 @@ const UserService = {
   registro: function (nombre, apellido, password, celular, email) {
     var config = {
       method: 'get',
-      url:
-        'http://workingjoe.byethost9.com/apiWJ/usuario/create.php?nombre=' +
-        nombre +
-        '&clave=' +
-        password +
-        '&celular=' +
-        celular +
-        '&mail=' +
-        email +
-        '&apellido=' +
-        apellido +
-        '&i=1',
+      url: `http://workingjoe.byethost9.com/apiWJ/usuario/create.php?nombre=${nombre}&clave=${password}&celular=${celular}&mail=${email}&apellido=${apellido}&i=1`,
       headers: {
         'User-Agent':
           'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36',
@@ -51,10 +40,10 @@ const UserService = {
 
     return axios(config)
       .then((res) => {
-        console.log(res);
         return res.data;
       })
       .catch((e) => {
+        // alert('error', JSON.parse(JSON.stringify(e.data)));
         return JSON.stringify(e.data);
       });
   },

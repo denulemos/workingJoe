@@ -1,4 +1,11 @@
 # Working Joe
+
+## Requerimientos tecnicos
+* Tener un dispositivo Android conectado o un Emulador corriendo
+* Tener ´react-native-cli´ instalado
+* Instalar dependencias y correr comandos con ´yarn´, no mezclar manejadores de paquetes. 
+
+## Descripcion sistema
 Se necesita un sistema para gestionar equipos de manera virtual.
 
 Se definirán dos roles para la aplicación: líderes y miembros. Los usuarios líderes deben tener las funcionalidades propias del líder, mientras que para los miembros no deben estar o estar deshabilitadas. Los líderes tienen todas las funcionalidades de los miembros.

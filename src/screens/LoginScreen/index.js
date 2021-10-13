@@ -1,29 +1,23 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet} from 'react-native';
-import {TextInput, Button, Text, Portal, Dialog} from 'react-native-paper';
+import {View, StyleSheet, ActivityIndicator} from 'react-native';
+import {TextInput, Button, Text} from 'react-native-paper';
 import UserService from '../../services/UserService';
 import DefaultPreference from 'react-native-default-preference';
+import PortalModal from '../../components/PortalModal';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [contraseña, setContraseña] = useState('');
   const [mostrarModal, setMostrarModal] = useState(false);
   const [textoModal, setTextoModal] = useState('');
-
-  useEffect(() => {
-    DefaultPreference.get('usuario').then(function (value) {
-      if (value !== null && value !== undefined) {
-        console.log(value);
-        navigation.navigate('CheckScreen');
-        return;
-      }
-    });
-  });
+  const [loading, setLoading] = useState(false);
 
   const validarCampos = () => {
+    setLoading(true);
     if (email.length === 0 || contraseña.length === 0) {
       setTextoModal('Completá todos los campos');
       setMostrarModal(true);
+      setLoading(false);
     } else {
       loginUsuario();
     }
@@ -31,7 +25,10 @@ const LoginScreen = ({navigation}) => {
 
   const loginUsuario = () => {
     UserService.login().then((res) => {
+      setTextoModal(JSON.parse(JSON.stringify(res.data)));
+      // setMostrarModal(true);
       const arrayUsuarios = JSON.parse(JSON.stringify(res.data.items));
+
       for (let i = 0; i < arrayUsuarios.length; i++) {
         if (
           arrayUsuarios[i].MAIL === email &&
@@ -41,8 +38,11 @@ const LoginScreen = ({navigation}) => {
           return;
         }
       }
+
+      // Se descomentará este proceso cuando tengamos servicios
       // setTextoModal('Usuario no encontrado');
       // setMostrarModal(true);
+      // setLoading(false)
       navigation.navigate('CheckScreen');
     });
   };
@@ -54,17 +54,19 @@ const LoginScreen = ({navigation}) => {
       });
       setTextoModal('Bienvenido ' + value.NOMBRE + '!');
       setMostrarModal(true);
+      setLoading(false);
       navigation.navigate('CheckScreen');
     } catch (e) {
-      setTextoModal('Ocurrió un error, por favor intentar más tarde ' + e);
-      setMostrarModal(true);
+      // setTextoModal('Ocurrió un error, por favor intentar más tarde ' + e);
+      // setMostrarModal(true);
+      // setLoading(false);
     }
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Working Joe</Text>
-      <View style={{margin: '8%'}}>
+      <View style={styles.inputContainer}>
         <TextInput
           label="Email"
           selectionColor={'black'}
@@ -94,20 +96,24 @@ const LoginScreen = ({navigation}) => {
         </Button>
         <Text style={styles.textHelp}>¿Tenés dudas? Contactanos</Text>
         <Text style={styles.textHelp}>Olvidé mi contraseña</Text>
+        <ActivityIndicator
+          style={{display: loading ? 'flex' : 'none', marginTop: '2%'}}
+          size="large"
+          color="black"
+        />
       </View>
-      <Portal>
-        <Dialog visible={mostrarModal} onDismiss={() => setMostrarModal(false)}>
-          <Dialog.Title>{textoModal}</Dialog.Title>
-          <Dialog.Actions>
-            <Button onPress={() => setMostrarModal(false)}>Ok</Button>
-          </Dialog.Actions>
-        </Dialog>
-      </Portal>
+      <PortalModal
+        mostrarModal={mostrarModal}
+        textoModal={textoModal}
+        textoBoton={'Ok'}
+        funcionModal={() => setMostrarModal(!mostrarModal)}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  inputContainer: {margin: '8%'},
   textHelp: {
     textAlign: 'center',
   },
