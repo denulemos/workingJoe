@@ -10,33 +10,48 @@ const Tab = createBottomTabNavigator();
 const HomeTabs = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="CheckScreen" component={CheckScreen}  options={{
+      <Tab.Screen
+        name="CheckScreen"
+        component={CheckScreen}
+        options={{
           tabBarLabel: 'Check',
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="check" color={color} size={size} />
           ),
-        }}/> 
-      <Tab.Screen name="Proyectos" component={ProyectosScreen}  options={{
+        }}
+      />
+      <Tab.Screen
+        name="Proyectos"
+        component={ProyectosScreen}
+        options={{
           tabBarLabel: 'Proyectos',
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="lock" color={color} size={size} />
           ),
-        }}/> 
-      <Tab.Screen name="Reportes" component={ReportesScreen}  options={{
+        }}
+      />
+      <Tab.Screen
+        name="Reportes"
+        component={ReportesScreen}
+        options={{
           tabBarLabel: 'Reportes',
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="book" color={color} size={size} />
           ),
-        }}/> 
-      <Tab.Screen name="Datos" component={DatosScreen}  options={{
+        }}
+      />
+      <Tab.Screen
+        name="Datos"
+        component={DatosScreen}
+        options={{
           tabBarLabel: 'Datos',
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons name="account" color={color} size={size} />
           ),
-        }}/> 
+        }}
+      />
     </Tab.Navigator>
   );
-}
-
+};
 
 export default HomeTabs;

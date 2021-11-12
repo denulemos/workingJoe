@@ -26,7 +26,7 @@ const LoginScreen = ({navigation}) => {
   const loginUsuario = () => {
     UserService.login().then((res) => {
       setTextoModal(JSON.parse(JSON.stringify(res.data)));
-      setMostrarModal(true);
+      // setMostrarModal(true);
       const arrayUsuarios = JSON.parse(JSON.stringify(res.data.items));
 
       for (let i = 0; i < arrayUsuarios.length; i++) {
@@ -38,9 +38,12 @@ const LoginScreen = ({navigation}) => {
           return;
         }
       }
-      setTextoModal('Usuario no encontrado');
-      setMostrarModal(true);
+
+      // Se descomentará este proceso cuando tengamos servicios
+      // setTextoModal('Usuario no encontrado');
+      // setMostrarModal(true);
       setLoading(false);
+      navigation.navigate('CheckScreen');
     });
   };
 
@@ -54,9 +57,9 @@ const LoginScreen = ({navigation}) => {
       setLoading(false);
       navigation.navigate('CheckScreen');
     } catch (e) {
-      setTextoModal('Ocurrió un error, por favor intentar más tarde ' + e);
-      setMostrarModal(true);
-      setLoading(false);
+      // setTextoModal('Ocurrió un error, por favor intentar más tarde ' + e);
+      // setMostrarModal(true);
+      // setLoading(false);
     }
   };
 
@@ -92,6 +95,7 @@ const LoginScreen = ({navigation}) => {
           Usuario Nuevo
         </Button>
         <Text style={styles.textHelp}>¿Tenés dudas? Contactanos</Text>
+        <Text style={styles.textHelp}>Olvidé mi contraseña</Text>
         <ActivityIndicator
           style={{display: loading ? 'flex' : 'none', marginTop: '2%'}}
           size="large"

@@ -8,9 +8,9 @@
 ## Descripcion sistema
 Se necesita un sistema para gestionar equipos de manera virtual.
 
-Se definirán dos roles para la aplicación: líderes y miembros. Los usuarios líderes deben tener las funcionalidades propias del líder, mientras que para los miembros no deben estar o estar deshabilitadas. Los líderes tienen todas las funcionalidades de los miembros. 
+Se definirán dos roles para la aplicación: líderes y miembros. Los usuarios líderes deben tener las funcionalidades propias del líder, mientras que para los miembros no deben estar o estar deshabilitadas. Los líderes tienen todas las funcionalidades de los miembros.
 
-Los líderes definen qué miembros integrarán sus equipos, definen y modifican el proyecto y las tareas a realizar, supervisan a sus miembros y su avance. 
+Los líderes definen qué miembros integrarán sus equipos, definen y modifican el proyecto y las tareas a realizar, supervisan a sus miembros y su avance.
 
 Los miembros de equipos informan cuando empiezan a trabajar en una tarea, cuando finalizan y un detalle de lo realizado. Pueden visualizar a todos los usuarios de la aplicación, quiénes están en línea, visualizar todos los proyectos y solicitar unirse.
 
@@ -39,6 +39,25 @@ La aplicación debe mostrar un cronómetro desde el momento que se inicia un per
 ![Pantallas](./assets/documentationImages/Pantallas.JPG)
 ![Detalle](./assets/documentationImages/Detalle.JPG)
 
+## Screenshots (Primera version)
+#### Datos Usuario
+![image](https://user-images.githubusercontent.com/32619895/137207652-1c8e6c50-95e6-43ef-8b3b-5bccd9c66f3c.png)
+#### Reportes (TBD)
+#### Proyectos
+![image](https://user-images.githubusercontent.com/32619895/137207717-bb914c2c-13c0-41c3-a8c1-cae4a9e28c84.png)
+#### Detalle Proyecto (TBD)
+#### Editar proyecto (TBD)
+#### Tareas (TBD)
+#### Usuarios (TBD)
+#### Check-in/out
+![image](https://user-images.githubusercontent.com/32619895/137207801-4cfe5cb7-4fa0-4975-913e-791dbfdd46e0.png)
+#### Login
+![image](https://user-images.githubusercontent.com/32619895/137207858-bae494db-9e7c-4a78-97e3-f20510ed80b8.png)
+#### Registro
+![image](https://user-images.githubusercontent.com/32619895/137207886-4a570cad-beb6-499f-b28a-fde7d0f10160.png)
+#### Modificar datos (TBD)
+
+## Screenshots (Primera version)
 ## Requerimiento Funcional
 ![ReqFun](./assets/documentationImages/ReqFuncional.JPG)
 

@@ -3,7 +3,7 @@ import {FlatList, Text, TouchableOpacity, View, StyleSheet} from 'react-native';
 import {Button} from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Item = ({item, onPress }) => (
+const Item = ({item, onPress}) => (
   <TouchableOpacity
     style={{
       marginTop: 10,
@@ -14,11 +14,9 @@ const Item = ({item, onPress }) => (
       paddingBottom: 10,
     }}
     onPress={onPress}>
-    <Text style={{marginRight: '50%'}}>{item.title}</Text>
+    <Text style={{marginRight: '45%', fontSize: 20}}>{item.title}</Text>
 
-    <TouchableOpacity
-      style={{marginRight: 10}}
-      onPress={() => console.log('fs')}>
+    <TouchableOpacity style={{marginRight: 10}} onPress={() => {}}>
       <MaterialCommunityIcons size={20} name="pen" />
     </TouchableOpacity>
     <TouchableOpacity onPress={() => console.log('fs')}>
