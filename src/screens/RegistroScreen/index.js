@@ -15,11 +15,11 @@ const RegistroScreen = ({navigation}) => {
 
   const validarCampos = () => {
     if (
-      email.length === 0 ||
-      nombre.length === 0 ||
-      apellido.length === 0 ||
-      contraseña.length === 0 ||
-      celular.length === 0
+      !email ||
+      !nombre||
+      !apellido ||
+      !contraseña ||
+      !celular
     ) {
       setTextoModal('Completá todos los campos');
       setMostrarModal(true);

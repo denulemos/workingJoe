@@ -56,7 +56,7 @@ const DATA = [
 
 const ProyectosScreen = ({navigation}) => {
   const renderItem = ({item}) => {
-    return <Item item={item} onPress={() => console.log('sfs')} />;
+    return <Item item={item} onPress={() => {}} />;
   };
   return (
     <View style={styles.container}>
@@ -80,13 +80,13 @@ const ProyectosScreen = ({navigation}) => {
         <Button
           style={styles.usuariosButton}
           mode="contained"
-          onPress={() => console.log('Pressed')}>
+          onPress={() => {}}>
           Tareas
         </Button>
         <Button
           style={styles.usuariosButton}
           mode="contained"
-          onPress={() => console.log('Pressed')}>
+          onPress={() => {}}>
           Usuarios
         </Button>
       </View>

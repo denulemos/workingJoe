@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import { Button, Text} from 'react-native-paper';
-const CheckScreen = ({navigation}) => {
+const CheckScreen = () => {
   const [selectedValue, setSelectedValue] = useState('java');
   return (
     <View style={styles.container}>
