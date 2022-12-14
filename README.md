@@ -44,13 +44,8 @@ La aplicación debe mostrar un cronómetro desde el momento que se inicia un per
 ## Screenshots (Primera version)
 #### Datos Usuario
 ![image](https://user-images.githubusercontent.com/32619895/137207652-1c8e6c50-95e6-43ef-8b3b-5bccd9c66f3c.png)
-#### Reportes (TBD)
 #### Proyectos
 ![image](https://user-images.githubusercontent.com/32619895/137207717-bb914c2c-13c0-41c3-a8c1-cae4a9e28c84.png)
-#### Detalle Proyecto (TBD)
-#### Editar proyecto (TBD)
-#### Tareas (TBD)
-#### Usuarios (TBD)
 #### Check-in/out
 ![image](https://user-images.githubusercontent.com/32619895/137207801-4cfe5cb7-4fa0-4975-913e-791dbfdd46e0.png)
 #### Login
