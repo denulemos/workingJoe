@@ -1,5 +1,7 @@
 # Working Joe
 
+Aplication realizada para la Universidad de Palermo.
+
 ## Requerimientos tecnicos
 * Tener un dispositivo Android conectado o un Emulador corriendo
 * Tener ´react-native-cli´ instalado
@@ -55,15 +57,13 @@ La aplicación debe mostrar un cronómetro desde el momento que se inicia un per
 ![image](https://user-images.githubusercontent.com/32619895/137207858-bae494db-9e7c-4a78-97e3-f20510ed80b8.png)
 #### Registro
 ![image](https://user-images.githubusercontent.com/32619895/137207886-4a570cad-beb6-499f-b28a-fde7d0f10160.png)
-#### Modificar datos (TBD)
 
-## Screenshots (Primera version)
 ## Requerimiento Funcional
 ![ReqFun](./assets/documentationImages/ReqFuncional.JPG)
 
 # Correr Proyecto Localmente
 
-`npm install` => Instalar las dependencias, solo correr una sola vez o cuando instalamos una dependencia nueva (o actualizamos)
-`pod install` => Se corre dentro de la carpeta `ios` (Solo con dispositivo Mac)
-`npm run ios` => Ejecutar en iOS (Solo con un disposivo Mac)
-`npm run android` => Recomiendo tener conectado un dispositivo real o corriendo un emulador en paralelo
+* `npm install` => Instalar las dependencias, solo correr una sola vez o cuando instalamos una dependencia nueva (o actualizamos)
+* `pod install` => Se corre dentro de la carpeta `ios` (Solo con MacOS)
+* `npm run ios` => Ejecutar en iOS (Solo con un disposivo MacOS)
+* `npm run android` => Tener emulador conectado o dispositivo real en modo debug
