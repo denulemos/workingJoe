@@ -35,26 +35,21 @@ Cada usuario puede ver si otros usuarios están activos en ese momento.
 La aplicación debe mostrar un cronómetro desde el momento que se inicia un período de actividad hasta que se finaliza (para saber cuánto tiempo se lleva de actividad). Este cronómetro debe permitir el uso completo de la aplicación mientras esté funcionando. 
 
 ## DER
-![DER](./assets/documentationImages/DER.JPG)
+![image](https://user-images.githubusercontent.com/32619895/207658120-592a5348-8c21-42d1-8829-d90fe243fa4f.png)
 
 ## Pantallas
-![Pantallas](./assets/documentationImages/Pantallas.JPG)
-![Detalle](./assets/documentationImages/Detalle.JPG)
+![image](https://user-images.githubusercontent.com/32619895/207658190-47ae5874-4d18-40c9-b694-a425d10b1c32.png)
+![image](https://user-images.githubusercontent.com/32619895/207658266-fd24a51c-4d10-4cab-a2e4-03e4a62b35a3.png)
 
 ## Screenshots (Primera version)
-#### Datos Usuario
-![image](https://user-images.githubusercontent.com/32619895/137207652-1c8e6c50-95e6-43ef-8b3b-5bccd9c66f3c.png)
-#### Proyectos
-![image](https://user-images.githubusercontent.com/32619895/137207717-bb914c2c-13c0-41c3-a8c1-cae4a9e28c84.png)
-#### Check-in/out
-![image](https://user-images.githubusercontent.com/32619895/137207801-4cfe5cb7-4fa0-4975-913e-791dbfdd46e0.png)
-#### Login
-![image](https://user-images.githubusercontent.com/32619895/137207858-bae494db-9e7c-4a78-97e3-f20510ed80b8.png)
-#### Registro
-![image](https://user-images.githubusercontent.com/32619895/137207886-4a570cad-beb6-499f-b28a-fde7d0f10160.png)
+
+| Datos Usuario  |Proyectos   |Check-in/out   | Login  | Registro|
+|---|---|---|---|---|
+| ![image](https://user-images.githubusercontent.com/32619895/137207652-1c8e6c50-95e6-43ef-8b3b-5bccd9c66f3c.png)  |![image](https://user-images.githubusercontent.com/32619895/137207717-bb914c2c-13c0-41c3-a8c1-cae4a9e28c84.png)   |  ![image](https://user-images.githubusercontent.com/32619895/137207801-4cfe5cb7-4fa0-4975-913e-791dbfdd46e0.png) |![image](https://user-images.githubusercontent.com/32619895/137207858-bae494db-9e7c-4a78-97e3-f20510ed80b8.png)   | ![image](https://user-images.githubusercontent.com/32619895/137207886-4a570cad-beb6-499f-b28a-fde7d0f10160.png) |
+
 
 ## Requerimiento Funcional
-![ReqFun](./assets/documentationImages/ReqFuncional.JPG)
+![image](https://user-images.githubusercontent.com/32619895/207658359-409fe4b8-995b-4a8c-b9b5-652806f04688.png)
 
 # Correr Proyecto Localmente
 
